@@ -1,6 +1,6 @@
 const sliders = (slides, dir, prev, next) => {
     let slideIndex = 1,
-    paused = false;
+        paused = false;
     const items = document.querySelectorAll(slides);
         
 
@@ -32,14 +32,14 @@ const sliders = (slides, dir, prev, next) => {
             nextBtn = document.querySelector(next);
         prevBtn.addEventListener('click', ()=>{
             plusSlides(-1);
-            items[slideIndex-1].classlist.remove('slideInLeft');
-            items[slideIndex-1].classlist.add('slideInRight');
+            items[slideIndex-1].classList.remove('slideInLeft');
+            items[slideIndex-1].classList.add('slideInRight');
 
         });
         nextBtn.addEventListener('click', ()=>{
             plusSlides(1);
-            items[slideIndex-1].classlist.remove('slideInRight');
-            items[slideIndex-1].classlist.add('slideInLeft');
+            items[slideIndex-1].classList.remove('slideInRight');
+            items[slideIndex-1].classList.add('slideInLeft');
 
         });
 
@@ -49,14 +49,14 @@ const sliders = (slides, dir, prev, next) => {
         if (dir === 'vertical'){
             paused = setInterval(function (){
                 plusSlides(1);
-                items[slideIndex-1].classlist.add('slideInDown');
+                items[slideIndex-1].classList.add('slideInDown');
             },3000);
     
         } else {
             paused = setInterval(function (){
                 plusSlides(1);
-                items[slideIndex-1].classlist.remove('slideInRight');
-                items[slideIndex-1].classlist.add('slideInLeft');
+                items[slideIndex-1].classList.remove('slideInRight');
+                items[slideIndex-1].classList.add('slideInLeft');
             },3000);
         }
     }
